@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+  <IfModule mod_negotiation.c>
+    Options -Indexes
+  </IfModule>
+
+  RewriteEngine On
+
+  RewriteRule ^(.*)/$ index.php/$1 [L,R=301]
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule ^home$ /pages/home/index.php [L]
+  RewriteRule ^product.html$ /pages/products/detail.php [L]
+  RewriteRule ^cart$ /pages/cart/index.php [L]
+  RewriteRule ^categories$ /pages/products/categories.php [L]
+  RewriteRule ^login$ /pages/authentication/login.php [L]
+  RewriteRule ^signup$ /pages/authentication/register.php [L]
+  RewriteRule ^forgot$ /pages/authentication/forgot.php [L]
+
+</IfModule>
